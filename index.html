@@ -1,782 +1,493 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Imran Sheikh — Head of AI</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" href="data:image/png;base64,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">
-<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Imran Sheikh | Head of Data & AI</title>
+<meta name="description" content="Imran Sheikh, Head of Data & AI in Abu Dhabi, UAE. Data & AI strategy, data engineering, production AI/ML, Generative AI, LLMs and agentic AI, MLOps/LLMOps and AI governance.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E4D48'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='26' font-weight='700' fill='%23F0B942' text-anchor='middle'%3EIS%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --crimson:#7A1620;       /* Harvard-crimson, deepened for print/screen */
-    --crimson-2:#961B26;     /* slightly brighter crimson for accents */
-    --charcoal:#1E1D1B;      /* MIT-adjacent near-black */
-    --charcoal-2:#2B2926;
-    --parchment:#F6F2E7;     /* diploma paper */
-    --parchment-2:#ECE3CC;
-    --gold:#B08D2E;          /* foil-stamp gold */
-    --gold-light:#D8B95C;
-    --text-dark:#211D19;
-    --text-mute:#655C4E;
-    --rule:#C9BFA0;          /* hairline rule on parchment */
-    --rule-dark:rgba(246,242,231,0.18);
+:root{
+  --paper:#F5F6F4;
+  --sheet:#FFFFFF;
+  --ink:#14201F;
+  --ink-soft:#4A5857;
+  --pine:#0E4D48;
+  --pine-soft:#DCEAE7;
+  --saffron:#D9961A;
+  --saffron-soft:#FBEFD6;
+  --rule:#D5DBD8;
+  --track-past:#AFC3BF;
+  --font:'Schibsted Grotesk', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0C1312; --sheet:#121B1A; --ink:#E6ECEA; --ink-soft:#A3B2AF;
+    --pine:#6CC0B4; --pine-soft:#1B3431; --saffron:#F0B942; --saffron-soft:#3A2F17;
+    --rule:#26332F; --track-past:#3C5552;
   }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{
-    background:var(--charcoal);
-    font-family:'EB Garamond', serif;
-    color:var(--text-dark);
-    -webkit-font-smoothing:antialiased;
-  }
-  .sheet{
-    max-width:880px;
-    margin:0 auto;
-    background:var(--parchment);
-    box-shadow:0 40px 90px rgba(0,0,0,0.55);
-  }
+}
+:root[data-theme="dark"]{
+  --paper:#0C1312; --sheet:#121B1A; --ink:#E6ECEA; --ink-soft:#A3B2AF;
+  --pine:#6CC0B4; --pine-soft:#1B3431; --saffron:#F0B942; --saffron-soft:#3A2F17;
+  --rule:#26332F; --track-past:#3C5552;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--font); font-size:16px; line-height:1.6;
+  -webkit-font-smoothing:antialiased; font-feature-settings:"tnum" 0;
+}
+a{color:var(--pine); text-decoration-thickness:1px; text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--saffron); outline-offset:3px; border-radius:2px}
+.sheet{max-width:960px; margin:0 auto; background:var(--sheet); min-height:100%}
+.wrap{padding:0 56px}
 
-  /* ===== HEADER — collegiate letterhead ===== */
-  header{
-    background:var(--charcoal);
-    color:var(--parchment);
-    padding:46px 56px 34px;
-    position:relative;
-    border-bottom:6px solid var(--crimson);
-  }
-  header::before{
-    content:"";
-    position:absolute; left:0; right:0; top:0;
-    height:3px;
-    background:var(--gold);
-  }
-  .letterhead-top{
-    display:flex;
-    align-items:center;
-    gap:22px;
-    margin-bottom:22px;
-  }
-  .crest{
-    width:64px; height:64px;
-    border-radius:50%;
-    border:2px solid var(--gold);
-    display:flex; align-items:center; justify-content:center;
-    flex-shrink:0;
-    position:relative;
-  }
-  .crest::before{
-    content:"";
-    position:absolute; inset:5px;
-    border:1px solid var(--gold-light);
-    border-radius:50%;
-    opacity:0.6;
-  }
-  .crest span{
-    font-family:'Playfair Display', serif;
-    font-weight:700;
-    font-size:22px;
-    color:var(--gold-light);
-    letter-spacing:0.02em;
-  }
-  .name-block h1{
-    font-family:'Playfair Display', serif;
-    font-weight:700;
-    font-size:44px;
-    line-height:1.02;
-    letter-spacing:0.01em;
-    margin:0 0 6px;
-  }
-  .name-block .role{
-    font-family:'EB Garamond', serif;
-    font-style:italic;
-    font-weight:500;
-    font-size:18px;
-    color:var(--gold-light);
-    margin:0;
-  }
-  .rule-double{
-    border:none;
-    border-top:1px solid var(--rule-dark);
-    border-bottom:1px solid var(--rule-dark);
-    height:3px;
-    margin:20px 0 18px;
-  }
-  .contact-row{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px 24px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11.5px;
-    color:#D8CFC0;
-    text-transform:uppercase;
-    letter-spacing:0.02em;
-  }
-  .contact-row b{color:var(--parchment); font-weight:600;}
+/* Header */
+header{padding:56px 0 8px}
+.top{display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap}
+h1{font-size:clamp(40px,7vw,68px); line-height:.98; font-weight:800; letter-spacing:-.025em; margin:0}
+.headline{font-size:clamp(18px,2.4vw,22px); font-weight:500; margin:14px 0 0; max-width:36ch; line-height:1.35}
+.headline span{display:block; margin-top:4px; font-size:.82em; color:var(--ink-soft); font-weight:400}
+.tools{display:flex; gap:8px}
+.btn{
+  font:500 14px/1 var(--font); color:var(--ink); background:transparent;
+  border:1px solid var(--rule); border-radius:999px; padding:10px 16px; cursor:pointer;
+}
+.btn:hover{border-color:var(--pine); color:var(--pine)}
+.contact{display:flex; flex-wrap:wrap; gap:6px 22px; margin:26px 0 0; padding:0; list-style:none; font-size:15px; color:var(--ink-soft)}
+.contact a{color:var(--ink)}
+.status{display:inline-flex; align-items:center; gap:8px; color:var(--pine); font-weight:600}
+.status::before{content:""; width:8px; height:8px; border-radius:50%; background:var(--pine)}
 
-  /* ===== METRIC STRIP ===== */
-  .ledger{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    background:var(--crimson);
-  }
-  .ledger div{
-    padding:22px 18px;
-    text-align:center;
-    border-left:1px solid rgba(246,242,231,0.22);
-  }
-  .ledger div:first-child{border-left:none;}
-  .ledger .num{
-    font-family:'Playfair Display', serif;
-    font-weight:700;
-    font-size:30px;
-    color:var(--gold-light);
-    display:block;
-    line-height:1;
-  }
-  .ledger .lbl{
-    display:block;
-    margin-top:8px;
-    font-size:10.5px;
-    letter-spacing:0.07em;
-    text-transform:uppercase;
-    color:#F0E3E4;
-    font-family:'IBM Plex Mono', monospace;
-  }
+/* Career track: the signature element */
+.track{margin:44px 0 12px}
+.track h2{font-size:15px; font-weight:600; color:var(--ink-soft); margin:0 0 30px}
+.track-body{position:relative}
+.bar, .labels{display:grid; grid-template-columns:4fr 3fr 9.08fr 3.67fr; column-gap:3px}
+.bar{height:44px}
+.seg{background:var(--track-past); border-radius:4px; transform-origin:left center}
+.seg.gap{background:transparent}
+.seg.now{background:var(--pine)}
+.labels{margin-top:12px; font-size:13.5px; line-height:1.35}
+.labels div{padding-right:8px}
+.labels b{display:block; font-weight:600; color:var(--ink)}
+.labels span{color:var(--ink-soft); font-variant-numeric:tabular-nums}
+.labels .now b{color:var(--pine)}
+.marker{
+  position:absolute; top:-26px; left:calc((100% - 9px) * 0.8142 + 8px); height:70px;
+  border-left:2px solid var(--saffron);
+}
+.marker span{
+  position:absolute; top:-2px; right:8px; white-space:nowrap;
+  font-size:13px; font-weight:600; color:var(--ink); background:var(--saffron-soft);
+  padding:2px 8px; border-radius:4px;
+}
+@media (prefers-reduced-motion:no-preference){
+  .seg{animation:grow .7s cubic-bezier(.2,.7,.2,1) both}
+  .seg:nth-child(2){animation-delay:.08s}.seg:nth-child(3){animation-delay:.16s}.seg:nth-child(4){animation-delay:.3s}
+  .marker{animation:fade .4s .9s both}
+  @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+}
 
-  /* ===== BODY SECTIONS ===== */
-  main{padding:44px 56px 20px;}
-  section{margin-bottom:38px;}
-  .sec-head{
-    display:flex;
-    align-items:baseline;
-    gap:14px;
-    margin-bottom:16px;
-  }
-  .sec-head .tag{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:10.5px;
-    letter-spacing:0.13em;
-    color:var(--crimson);
-    text-transform:uppercase;
-    border:1px solid var(--crimson);
-    padding:3px 9px;
-    border-radius:0;
-  }
-  .sec-head h2{
-    font-family:'Playfair Display', serif;
-    font-weight:700;
-    font-size:21px;
-    margin:0;
-    color:var(--charcoal);
-  }
-  .sec-head::after{
-    content:"";
-    flex:1;
-    height:1px;
-    background:var(--rule);
-    transform:translateY(2px);
-  }
+/* Facts */
+.facts{display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin:40px 0 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule)}
+.facts div{padding:20px 20px 20px 0}
+.facts div + div{padding-left:20px; border-left:1px solid var(--rule)}
+.facts dt{font-size:28px; font-weight:700; letter-spacing:-.01em; line-height:1.1; font-variant-numeric:tabular-nums}
+.facts dd{margin:6px 0 0; font-size:14px; color:var(--ink-soft); line-height:1.4}
 
-  .summary{
-    font-size:16px;
-    line-height:1.68;
-    color:#2C2620;
-    max-width:100%;
-  }
-  .summary::first-letter{
-    font-family:'Playfair Display', serif;
-    font-size:46px;
-    font-weight:700;
-    color:var(--crimson);
-    float:left;
-    line-height:0.78;
-    padding:6px 8px 0 0;
-  }
+/* Sections */
+main{padding-bottom:40px}
+section{display:grid; grid-template-columns:180px 1fr; gap:0 40px; padding:44px 0 0}
+section > h2{font-size:18px; font-weight:700; margin:0; line-height:1.3; letter-spacing:-.005em; position:relative; padding-top:14px}
+section > h2::before{content:""; position:absolute; top:0; left:0; width:28px; height:3px; background:var(--pine)}
+.body{min-width:0}
+p{margin:0 0 14px; max-width:72ch}
+.lede{font-size:17.5px; line-height:1.65}
 
-  /* ===== SIGNATURE ACHIEVEMENT (Oracle Award) ===== */
-  .award-wrap{
-    background:linear-gradient(155deg, var(--charcoal) 0%, #2E1113 100%);
-    border:1px solid var(--gold);
-    border-radius:2px;
-    padding:26px 30px 24px;
-    display:flex;
-    gap:24px;
-    align-items:flex-start;
-    position:relative;
-    overflow:hidden;
-  }
-  .award-wrap::before{
-    content:"";
-    position:absolute; right:-40px; top:-40px;
-    width:160px; height:160px;
-    border:1px solid rgba(216,185,92,0.25);
-    border-radius:50%;
-  }
-  .award-icon{
-    flex-shrink:0;
-    width:58px; height:58px;
-  }
-  .award-body h3{
-    font-family:'Playfair Display', serif;
-    font-weight:700;
-    font-size:20px;
-    color:var(--parchment);
-    margin:0 0 4px;
-  }
-  .award-eyebrow{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:10.5px;
-    letter-spacing:0.13em;
-    text-transform:uppercase;
-    color:var(--gold-light);
-    margin:0 0 8px;
-    display:block;
-  }
-  .award-body p{
-    font-size:13.8px;
-    line-height:1.6;
-    color:#DCD2C6;
-    margin:0 0 14px;
-  }
-  .award-ribbon{
-    display:inline-block;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11px;
-    letter-spacing:0.05em;
-    color:var(--charcoal);
-    background:linear-gradient(90deg, var(--gold-light), var(--gold));
-    padding:6px 16px;
-    font-weight:600;
-  }
+.role{padding:0 0 30px}
+.role + .role{border-top:1px solid var(--rule); padding-top:26px}
+.role h3{font-size:19px; font-weight:700; margin:0; line-height:1.3}
+.role .meta{display:flex; flex-wrap:wrap; gap:4px 16px; margin:6px 0 14px; color:var(--ink-soft); font-size:15px}
+.role .meta time{font-variant-numeric:tabular-nums; color:var(--ink); font-weight:500}
+.promo{display:inline-block; font-size:13px; font-weight:600; color:var(--ink); background:var(--saffron-soft); padding:1px 8px; border-radius:4px}
+ul{margin:0; padding:0 0 0 18px}
+li{margin:0 0 8px; max-width:74ch}
+li::marker{color:var(--pine)}
 
-  /* competencies pills */
-  .pills{display:flex; flex-wrap:wrap; gap:9px;}
-  .pill{
-    font-size:12.5px;
-    padding:7px 14px;
-    background:var(--parchment-2);
-    border:1px solid var(--rule);
-    color:var(--charcoal);
-    font-weight:500;
-    font-family:'EB Garamond', serif;
-  }
-  .pill.crimson{
-    background:var(--crimson);
-    color:var(--parchment);
-    border-color:var(--crimson);
-  }
+.award{
+  display:grid; grid-template-columns:auto 1fr; gap:22px; align-items:start;
+  background:var(--saffron-soft); border-radius:10px; padding:26px 28px;
+}
+.medal{width:56px; height:56px; flex-shrink:0}
+.award h3{margin:0 0 6px; font-size:21px; line-height:1.25}
+.award p{margin:0; color:var(--ink)}
+.award .by{font-size:14px; color:var(--ink-soft); margin-bottom:8px}
 
-  /* ===== STAGE GATE SIGNATURE DIAGRAM ===== */
-  .gate-wrap{
-    background:var(--charcoal);
-    padding:26px 30px 22px;
-    margin-top:6px;
-  }
-  .gate-title{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:10.5px;
-    letter-spacing:0.11em;
-    text-transform:uppercase;
-    color:var(--gold-light);
-    margin:0 0 20px;
-  }
-  .gate-row{
-    display:flex;
-    align-items:center;
-  }
-  .gate-node{
-    flex:1;
-    text-align:center;
-    position:relative;
-  }
-  .gate-dot{
-    width:12px; height:12px;
-    border-radius:50%;
-    background:var(--gold-light);
-    margin:0 auto 10px;
-    box-shadow:0 0 0 4px rgba(216,185,92,0.16);
-  }
-  .gate-connector{
-    flex:0.6;
-    height:1px;
-    background:linear-gradient(90deg, var(--crimson-2), var(--gold));
-    margin-bottom:41px;
-    opacity:0.8;
-  }
-  .gate-label{
-    font-size:11px;
-    color:#E6DCCB;
-    line-height:1.35;
-    font-weight:500;
-    font-family:'EB Garamond', serif;
-  }
+.gates{list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(6,1fr); gap:6px; counter-reset:g}
+.gates li{
+  counter-increment:g; margin:0; background:var(--pine-soft); border-radius:6px;
+  padding:14px 12px 16px; font-size:14px; line-height:1.35; font-weight:500; position:relative;
+}
+.gates li::before{content:counter(g); display:block; font-size:22px; font-weight:800; color:var(--pine); margin-bottom:6px; font-variant-numeric:tabular-nums}
+.gates li:last-child{background:var(--pine); color:var(--sheet)}
+.gates li:last-child::before{color:var(--sheet)}
+.note{font-size:15px; color:var(--ink-soft); margin-top:14px}
 
-  /* ===== EXPERIENCE TIMELINE ===== */
-  .timeline{position:relative; padding-left:26px;}
-  .timeline::before{
-    content:"";
-    position:absolute; left:5px; top:6px; bottom:6px;
-    width:2px;
-    background:var(--rule);
-  }
-  .role-block{position:relative; margin-bottom:28px;}
-  .role-block:last-child{margin-bottom:0;}
-  .role-block::before{
-    content:"";
-    position:absolute; left:-26px; top:5px;
-    width:12px; height:12px;
-    border-radius:50%;
-    background:var(--parchment);
-    border:2.5px solid var(--crimson);
-  }
-  .role-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:baseline;
-    flex-wrap:wrap;
-    gap:6px 16px;
-    margin-bottom:4px;
-  }
-  .role-title{
-    font-family:'Playfair Display', serif;
-    font-weight:700;
-    font-size:17px;
-    color:var(--charcoal);
-  }
-  .role-org{
-    font-size:13.5px;
-    color:var(--text-mute);
-    font-style:italic;
-  }
-  .role-years{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11px;
-    color:var(--crimson);
-    background:var(--parchment-2);
-    padding:3px 9px;
-    white-space:nowrap;
-    border:1px solid var(--rule);
-  }
-  .role-block.primary .role-title{font-size:19px;}
-  ul.bullets{margin:10px 0 0; padding-left:18px;}
-  ul.bullets li{
-    font-size:14px;
-    line-height:1.6;
-    margin-bottom:6px;
-    color:#2C2620;
-  }
-  ul.bullets.compact li{font-size:13.2px; margin-bottom:4px;}
-  .minor-roles{margin-top:22px; display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+.products{display:grid; grid-template-columns:repeat(2,1fr); gap:0 32px}
+.product{padding:16px 0; border-top:1px solid var(--rule)}
+.product h3{font-size:16.5px; margin:0 0 4px; font-weight:700}
+.product .kind{font-size:13px; color:var(--pine); font-weight:600; margin-bottom:4px; display:block}
+.product p{margin:0; font-size:15px; color:var(--ink-soft)}
 
-  /* ===== PROJECT CARDS ===== */
-  .projects{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
-  .proj-card{
-    background:var(--parchment-2);
-    border-left:3px solid var(--crimson);
-    padding:14px 16px;
-  }
-  .proj-card h3{
-    font-family:'Playfair Display', serif;
-    font-size:14.5px;
-    font-weight:700;
-    margin:0 0 3px;
-    color:var(--charcoal);
-  }
-  .proj-card .proj-type{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:10px;
-    color:var(--text-mute);
-    display:block;
-    margin-bottom:6px;
-  }
-  .proj-card p{font-size:12.8px; line-height:1.5; margin:0; color:#33413F;}
+.project{padding:0 0 22px}
+.project h3{font-size:17px; margin:0 0 6px}
+.project .stack{font-size:14.5px; color:var(--ink-soft)}
 
-  /* ===== AI PRODUCTS / AGENTS (dark panel) ===== */
-  .ai-wrap{
-    background:var(--charcoal);
-    padding:24px 26px 26px;
-  }
-  .ai-wrap .gate-title{margin-bottom:16px;}
-  .ai-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:12px;
-  }
-  .ai-card{
-    background:rgba(246,242,231,0.05);
-    border:1px solid rgba(216,185,92,0.3);
-    padding:14px 15px;
-  }
-  .ai-card .ai-icon{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:9.5px;
-    letter-spacing:0.09em;
-    text-transform:uppercase;
-    color:var(--gold-light);
-    display:block;
-    margin-bottom:8px;
-  }
-  .ai-card h3{
-    font-family:'Playfair Display', serif;
-    font-size:14.5px;
-    font-weight:700;
-    margin:0 0 3px;
-    color:var(--parchment);
-    line-height:1.25;
-  }
-  .ai-card .ai-tag{
-    font-size:11px;
-    color:var(--gold-light);
-    display:block;
-    margin-bottom:6px;
-    font-style:italic;
-  }
-  .ai-card p{
-    font-size:11.8px;
-    line-height:1.48;
-    margin:0;
-    color:#C9BFA8;
-  }
-  @media (max-width:700px){
-    .ai-grid{grid-template-columns:1fr 1fr;}
-  }
+.chips{display:flex; flex-wrap:wrap; gap:8px; list-style:none; padding:0; margin:0}
+.chips li{margin:0; font-size:14.5px; border:1px solid var(--rule); border-radius:999px; padding:6px 13px; line-height:1.3}
 
-  /* ===== SPEAKING ===== */
-  .speak-list{display:flex; flex-direction:column; gap:10px;}
-  .speak-item{
-    display:flex; gap:14px; align-items:baseline;
-    font-size:14px; line-height:1.55;
-  }
-  .speak-year{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11.5px; color:var(--crimson);
-    min-width:42px;
-  }
-  .speak-item b{color:var(--charcoal);}
+.skills{display:grid; grid-template-columns:200px 1fr; gap:10px 24px; margin:0}
+.skills dt{font-weight:600; font-size:15px}
+.skills dd{margin:0; font-size:15px; color:var(--ink-soft)}
 
-  /* ===== SKILLS + EDUCATION 2-COL ===== */
-  .two-col{display:grid; grid-template-columns:1.15fr 1fr; gap:34px;}
-  .skill-group{margin-bottom:14px;}
-  .skill-group:last-child{margin-bottom:0;}
-  .skill-group .sk-label{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:10px;
-    text-transform:uppercase;
-    letter-spacing:0.06em;
-    color:var(--crimson);
-    display:block;
-    margin-bottom:5px;
-  }
-  .skill-group p{font-size:13.2px; line-height:1.5; margin:0; color:#2C2620;}
+.talks li{margin-bottom:12px}
+.talks time{font-weight:600; font-variant-numeric:tabular-nums; margin-right:6px}
 
-  .cert-list{list-style:none; margin:0; padding:0;}
-  .cert-list li{
-    font-size:13.2px;
-    line-height:1.55;
-    padding:8px 0;
-    border-bottom:1px dashed var(--rule);
-    color:#2C2620;
-  }
-  .cert-list li:last-child{border-bottom:none;}
-  .cert-list b{color:var(--charcoal); font-weight:600;}
+footer{border-top:1px solid var(--rule); margin-top:48px; padding:22px 0 40px; font-size:14px; color:var(--ink-soft); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px}
 
-  /* ===== FOOTER ===== */
-  footer{
-    background:var(--charcoal);
-    color:#C9BFA8;
-    text-align:center;
-    padding:20px 30px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:10px;
-    letter-spacing:0.06em;
-    border-top:3px solid var(--gold);
-  }
-  footer b{color:var(--gold-light);}
+/* Responsive */
+@media (max-width:820px){
+  .wrap{padding:0 24px}
+  header{padding-top:36px}
+  section{grid-template-columns:1fr; gap:18px 0; padding-top:38px}
+  .facts{grid-template-columns:repeat(2,1fr)}
+  .facts div:nth-child(3){padding-left:0; border-left:none}
+  .facts div:nth-child(n+3){border-top:1px solid var(--rule)}
+  .gates{grid-template-columns:repeat(3,1fr)}
+  .products{grid-template-columns:1fr}
+  .skills{grid-template-columns:1fr; gap:2px 0}
+  .skills dd{margin-bottom:12px}
+}
+@media (max-width:600px){
+  .labels{display:none}
+  .track .track-list{display:block}
+  .marker span{font-size:12px}
+  .gates{grid-template-columns:repeat(2,1fr)}
+  .award{grid-template-columns:1fr; padding:22px}
+}
+.track-list{display:none; list-style:none; padding:0; margin:16px 0 0; font-size:14.5px}
+.track-list li{display:flex; justify-content:space-between; gap:12px; border-bottom:1px solid var(--rule); padding:8px 0; margin:0}
+.track-list li span{color:var(--ink-soft); font-variant-numeric:tabular-nums; white-space:nowrap}
+.track-list li.now{color:var(--pine); font-weight:600}
 
-  @media (max-width:700px){
-    header{padding:36px 26px 28px;}
-    h1{font-size:34px;}
-    main{padding:32px 22px 10px;}
-    .ledger{grid-template-columns:repeat(2,1fr);}
-    .ledger div:nth-child(3){border-left:none;}
-    .two-col, .minor-roles, .projects{grid-template-columns:1fr;}
-    .gate-row{flex-wrap:wrap; gap:16px 0;}
-    .gate-connector{display:none;}
-    .gate-node{flex:1 1 30%;}
-    .award-wrap{flex-direction:column;}
-  }
-  @media print{
-    body{background:var(--parchment);}
-    .sheet{box-shadow:none; max-width:none;}
-  }
+/* Print */
+@media print{
+  @page{margin:14mm 12mm}
+  :root{--paper:#fff; --sheet:#fff; --ink:#111; --ink-soft:#444}
+  body{font-size:11pt}
+  .tools{display:none}
+  .wrap{padding:0}
+  header{padding-top:0}
+  section{break-inside:auto; padding-top:22px; grid-template-columns:140px 1fr}
+  .role,.product,.project,.award,.gates{break-inside:avoid}
+  .seg,.marker{animation:none!important}
+  a{color:var(--ink); text-decoration:none}
+  .facts{margin-top:24px}
+}
 </style>
 </head>
 <body>
 <div class="sheet">
+<div class="wrap">
 
-  <header>
-    <div class="letterhead-top">
-      <div class="crest"><span>IS</span></div>
-      <div class="name-block">
-        <h1>Imran Sheikh</h1>
-        <p class="role">Head of AI &middot; AI Product Strategy &amp; Enterprise AI Leader</p>
-      </div>
+<header>
+  <div class="top">
+    <div>
+      <h1>Imran Sheikh</h1>
+      <p class="headline">Head of Data &amp; AI <span>Data &amp; AI strategy, data engineering and production AI, from database foundations to agentic AI</span></p>
     </div>
-    <hr class="rule-double">
-    <div class="contact-row">
-      <span><b>Abu Dhabi, UAE</b></span>
-      <span>UAE Golden Visa</span>
-      <span>Immediate Availability</span>
-      <span>+971.56.7180076</span>
-      <span>imranazharsheikh@gmail.com</span>
-      <span>linkedin.com/in/imranazhar</span>
+    <div class="tools">
+      <button class="btn" id="themeBtn" type="button" aria-label="Switch colour theme">Dark mode</button>
+      <button class="btn" type="button" onclick="window.print()">Print or save PDF</button>
     </div>
-  </header>
-
-  <div class="ledger">
-    <div><span class="num">23+</span><span class="lbl">Years in Enterprise IT &amp; AI</span></div>
-    <div><span class="num">7</span><span class="lbl">Enterprise AI Products Shipped</span></div>
-    <div><span class="num">12</span><span class="lbl">Years Leading Data, AI &amp; Tech Unit</span></div>
-    <div><span class="num">3</span><span class="lbl">Keynote / Panel Engagements</span></div>
   </div>
+  <ul class="contact">
+    <li class="status">Available immediately</li>
+    <li>Abu Dhabi, UAE</li>
+    <li>UAE Golden Visa</li>
+    <li><a href="tel:+971567180076">+971 56 718 0076</a></li>
+    <li><a href="mailto:imranazharsheikh@gmail.com">imranazharsheikh@gmail.com</a></li>
+    <li><a href="https://linkedin.com/in/imranazhar" target="_blank" rel="noopener">LinkedIn</a></li>
+    <li><a href="https://github.com/imransheikh-ai/ai-governance-stage-gate-framework" target="_blank" rel="noopener">GitHub</a></li>
+  </ul>
+</header>
 
-  <main>
+<div class="track" aria-label="Career timeline, 2006 to 2026">
+  <h2>Twenty years, from database foundations to leading Data &amp; AI</h2>
+  <div class="track-body">
+    <div class="marker" aria-hidden="true"><span>Promoted, Feb 2023</span></div>
+    <div class="bar" aria-hidden="true">
+      <div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg now"></div>
+    </div>
+    <div class="labels">
+      <div><b>Database Administrator</b><span>2006 – 2010</span></div>
+      <div><b>Project Lead, Oracle</b><span>2010 – 2013</span></div>
+      <div><b>Senior Database Administrator, ADMN</b><span>2014 – Feb 2023</span></div>
+      <div class="now"><b>Head of Unit, Data, AI &amp; Enterprise Technology</b><span>Feb 2023 – 2026</span></div>
+    </div>
+    <ul class="track-list">
+      <li class="now">Head of Unit, Data, AI &amp; Enterprise Technology <span>2023 – 2026</span></li>
+      <li>Senior Database Administrator, ADMN <span>2014 – 2023</span></li>
+      <li>Project Lead, Oracle, Raqmiyat <span>2010 – 2013</span></li>
+      <li>Database Administrator, SNGPL <span>2006 – 2010</span></li>
+    </ul>
+  </div>
+</div>
 
-    <section>
-      <div class="sec-head"><span class="tag">Profile</span><h2>Professional Summary</h2></div>
-      <p class="summary">Executive AI leader with 23+ years of enterprise digital transformation and AI strategy experience, including AI product and platform leadership within a UAE media and communications organization. Proven track record designing, governing, and scaling Generative AI, LLM, RAG, and AI agent solutions from concept through production — delivering measurable outcomes in content generation, knowledge discovery, reporting automation, and stakeholder communications. Deep expertise in AI Target Operating Model design, Responsible AI governance, and cross-functional leadership across engineering, product, data, and business teams. Skilled at bridging technology strategy with executive leadership, boards, and vendor ecosystems to commercialize AI-enabled products in complex, regulated environments.</p>
-    </section>
+<dl class="facts">
+  <div><dt>7</dt><dd>Production AI/ML, GenAI and agentic AI solutions delivered</dd></div>
+  <div><dt>2024</dt><dd>Oracle GenAI Applications Innovation Award</dd></div>
+  <div><dt>3</dt><dd>AI roles hired to build the in-house team</dd></div>
+  <div><dt>16 yrs</dt><dd>Delivering technology in the UAE</dd></div>
+</dl>
 
-    <section>
-      <div class="sec-head"><span class="tag">Honor</span><h2>Signature Achievement</h2></div>
-      <div class="award-wrap">
-        <svg class="award-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20 10H44V26C44 32.6274 38.6274 38 32 38C25.3726 38 20 32.6274 20 26V10Z" stroke="#D8B95C" stroke-width="2"/>
-          <path d="M20 14H12C12 20 15 25 20 25.5" stroke="#D8B95C" stroke-width="2"/>
-          <path d="M44 14H52C52 20 49 25 44 25.5" stroke="#D8B95C" stroke-width="2"/>
-          <rect x="28" y="38" width="8" height="8" fill="#D8B95C"/>
-          <path d="M18 54H46L42 46H22L18 54Z" fill="#D8B95C"/>
-          <rect x="18" y="54" width="28" height="3" fill="#D8B95C"/>
-        </svg>
-        <div class="award-body">
-          <span class="award-eyebrow">Oracle &middot; Industry Recognition &middot; 2024</span>
-          <h3>Oracle GenAI Applications Innovation Award</h3>
-          <p>Abu Dhabi Media Network received the Oracle award for innovation in Generative AI applications — a flagship achievement delivered by Imran Sheikh and his team, accelerating digital innovation, operational efficiency, and user experience across the enterprise.</p>
-          <span class="award-ribbon">Award-Winning AI Transformation Leadership</span>
-        </div>
+<main>
+
+<section id="summary">
+  <h2>Summary</h2>
+  <div class="body">
+    <p class="lede">Data &amp; AI leader with 20 years in enterprise technology, data platforms and databases, including 16 years in the UAE. At a government-owned organization in Abu Dhabi, I progressed from Senior Database Administrator to Head of Unit for Data, AI &amp; Enterprise Technology in February 2023, establishing the AI function as enterprise Generative AI emerged and working with C-level leadership on priorities, investment and delivery.</p>
+    <p>I built the in-house AI team, delivered 7 production AI/ML, Generative AI, LLM and agentic AI solutions, and led the team that won the Oracle GenAI Applications Innovation Award. My foundation is data engineering and modern data architecture across Azure Data Factory, Synapse, Databricks, Oracle Autonomous Database and Data Warehouse, Oracle Data Intelligence Platform, SQL Server and Power BI. I set best practices across data engineering, AI/ML and MLOps/LLMOps, build in security, governance and scalability, and stay hands-on with Python, SQL, LangChain, RAG, Docker and CI/CD.</p>
+  </div>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="body">
+
+    <article class="role">
+      <h3>Head of Unit, Data, AI &amp; Enterprise Technology</h3>
+      <div class="meta"><span>Abu Dhabi Media Network, Abu Dhabi</span><time>Feb 2023 – 2026</time><span class="promo">Promoted from Senior Database Administrator</span></div>
+      <ul>
+        <li>Established the organization's AI function in February 2023 and owned the Data &amp; AI strategy and technical roadmap, working with C-level leadership on priorities, investment and delivery.</li>
+        <li>Built and scaled the in-house AI team, hiring an AI Engineer, AI Specialist and Senior Developer, and led and mentored it alongside cross-functional data, engineering and delivery-partner teams.</li>
+        <li>Delivered 7 production AI/ML, Generative AI, LLM and agentic AI solutions, from rapid GenAI pilots to multi-quarter platform initiatives, improving productivity, process automation, decision support and knowledge discovery.</li>
+        <li>Led the team that won the Oracle GenAI Applications Innovation Award (2024).</li>
+        <li>Oversaw modern data platforms and data engineering (Azure Data Factory, Azure Synapse, Databricks, Oracle Autonomous Data Warehouse, SQL Server) for analytics and AI workloads, including Power BI and Oracle analytics dashboards for multiple departments.</li>
+        <li>Designed AI architecture and reusable solution patterns (RAG, agents, APIs, integration) on Microsoft Azure (Azure AI Foundry, Azure ML) and OCI, including self-hosted LLMs on OCI Generative AI Dedicated AI Clusters.</li>
+        <li>Set best practices across data engineering, AI/ML and MLOps/LLMOps: validation and evaluation for accuracy, bias, robustness, drift and explainability; performance monitoring; versioning, traceability and documentation; and post-deployment intervention thresholds.</li>
+        <li>Chaired AI assurance stage gates so solutions met security, governance and scalability requirements, and embedded data governance, Responsible AI and PII/privacy controls with Legal, Risk, Cybersecurity and Compliance.</li>
+        <li>Designed the AI Target Operating Model and drove organization-wide adoption through guidelines, playbooks and training for technical and non-technical users.</li>
+        <li>Managed vendor and delivery-partner ecosystems and build-vs-buy decisions, defining scope, acceptance criteria, cost and knowledge transfer.</li>
+      </ul>
+    </article>
+
+    <article class="role">
+      <h3>Senior Database Administrator</h3>
+      <div class="meta"><span>Abu Dhabi Media Network, Abu Dhabi</span><time>2014 – Feb 2023</time></div>
+      <ul>
+        <li>Managed enterprise Oracle and SQL Server database environments, including Oracle Autonomous Database and Autonomous Data Warehouse, for performance, availability, security, backup and recovery.</li>
+        <li>Built and supported data platforms and pipelines (Azure Data Factory, Azure Synapse, Databricks, Oracle Autonomous Data Warehouse) for enterprise reporting and analytics.</li>
+        <li>Built ERP and HCM analytics dashboards on the Oracle Data Intelligence Platform (OCI PaaS), and Power BI dashboards with multiple departments for KPI reporting.</li>
+        <li>Supported Oracle Fusion ERP and HCM data, integration and cloud initiatives across Azure and OCI.</li>
+      </ul>
+    </article>
+
+    <article class="role">
+      <h3>Project Lead, Oracle Applications &amp; Database Administrator</h3>
+      <div class="meta"><span>Raqmiyat LLC, UAE</span><time>2010 – 2013</time></div>
+      <ul>
+        <li>Delivered enterprise ERP transformation and cloud migration projects for government entities, including HAAD and the Central Bank of the UAE.</li>
+        <li>Managed the Oracle ERP lifecycle, integrations, high-availability architecture, disaster recovery and resilience frameworks.</li>
+      </ul>
+    </article>
+
+    <article class="role">
+      <h3>Database Administrator</h3>
+      <div class="meta"><span>Sui Northern Gas Pipelines Ltd., Pakistan</span><time>2006 – 2010</time></div>
+      <ul>
+        <li>Managed Oracle EBS databases using SQL for performance, availability, data integrity, backup, recovery and security.</li>
+      </ul>
+    </article>
+
+  </div>
+</section>
+
+<section id="award">
+  <h2>Recognition</h2>
+  <div class="body">
+    <div class="award">
+      <svg class="medal" viewBox="0 0 56 56" aria-hidden="true">
+        <path d="M18 2h8l6 16-6 3z M38 2h-8l-6 16 6 3z" fill="var(--pine)"/>
+        <circle cx="28" cy="36" r="17" fill="var(--saffron)"/>
+        <circle cx="28" cy="36" r="12" fill="none" stroke="var(--sheet)" stroke-width="1.5" opacity=".7"/>
+        <path d="M28 28l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z" fill="var(--sheet)"/>
+      </svg>
+      <div>
+        <h3>Oracle GenAI Applications Innovation Award</h3>
+        <div class="by">Oracle, 2024</div>
+        <p>Awarded to Abu Dhabi Media Network for innovation in Generative AI applications delivered by the team I led, improving operational efficiency and user experience across the organization.</p>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section>
-      <div class="sec-head"><span class="tag">Governance</span><h2>The AI Stage-Gate Model He Chairs</h2></div>
-      <div class="gate-wrap">
-        <p class="gate-title">Investment → Production, in six checkpoints</p>
-        <div class="gate-row">
-          <div class="gate-node"><div class="gate-dot"></div><div class="gate-label">Investment<br>Prioritization</div></div>
-          <div class="gate-connector"></div>
-          <div class="gate-node"><div class="gate-dot"></div><div class="gate-label">Business Case<br>Approval</div></div>
-          <div class="gate-connector"></div>
-          <div class="gate-node"><div class="gate-dot"></div><div class="gate-label">Architecture &amp;<br>Data Readiness</div></div>
-          <div class="gate-connector"></div>
-          <div class="gate-node"><div class="gate-dot"></div><div class="gate-label">Security &amp;<br>Risk Review</div></div>
-          <div class="gate-connector"></div>
-          <div class="gate-node"><div class="gate-dot"></div><div class="gate-label">Operational<br>Acceptance</div></div>
-          <div class="gate-connector"></div>
-          <div class="gate-node"><div class="gate-dot"></div><div class="gate-label">Scaling<br>Decision</div></div>
-        </div>
-      </div>
-    </section>
+<section id="governance">
+  <h2>AI assurance stage gates</h2>
+  <div class="body">
+    <ol class="gates">
+      <li>Investment prioritization</li>
+      <li>Business case approval</li>
+      <li>Architecture and data readiness</li>
+      <li>Security and risk review</li>
+      <li>Operational acceptance</li>
+      <li>Scaling decision</li>
+    </ol>
+    <p class="note">The six gates I chaired to take each AI initiative from investment to production, now published as an <a href="https://github.com/imransheikh-ai/ai-governance-stage-gate-framework" target="_blank" rel="noopener">open-source framework on GitHub</a>.</p>
+  </div>
+</section>
 
-    <section>
-      <div class="sec-head"><span class="tag">Strengths</span><h2>Core Competencies</h2></div>
-      <div class="pills">
-        <span class="pill crimson">AI Product Strategy &amp; Commercialization</span>
-        <span class="pill crimson">Generative AI, LLMs, RAG &amp; Agentic AI</span>
-        <span class="pill crimson">AI Target Operating Model</span>
-        <span class="pill">Responsible AI &amp; Governance</span>
-        <span class="pill">NLP &amp; Workflow Automation</span>
-        <span class="pill">AI Portfolio Governance</span>
-        <span class="pill">Product-Led Operating Model</span>
-        <span class="pill">Data &amp; AI Platforms (Azure, OCI, Databricks)</span>
-        <span class="pill">Human-Centered AI Design</span>
-        <span class="pill">Vendor &amp; Delivery Partnership</span>
-        <span class="pill">Cross-Functional Leadership</span>
-        <span class="pill">Board / CXO / SteerCo Engagement</span>
-        <span class="pill">Enterprise Architecture &amp; Cloud Strategy</span>
-        <span class="pill">PMO Governance &amp; RAID</span>
-      </div>
-    </section>
+<section id="products">
+  <h2>AI products and agents</h2>
+  <div class="body">
+    <p>Built and delivered with my team at Abu Dhabi Media Network.</p>
+    <div class="products">
+      <div class="product"><span class="kind">Voice AI</span><h3>Autonomous Voice Hub</h3><p>Interactive platform demonstrating autonomous voice AI capabilities.</p></div>
+      <div class="product"><span class="kind">Employee assistant</span><h3>ADMN Nova</h3><p>Video- and audio-based assistant for internal employee support and engagement.</p></div>
+      <div class="product"><span class="kind">Outbound phone agent</span><h3>Vendor Renewal Agent</h3><p>Calls suppliers with reminders for commercial and license renewals.</p></div>
+      <div class="product"><span class="kind">Outbound phone agent</span><h3>IT Helpdesk Survey Agent</h3><p>Collects post-ticket feedback to improve IT service quality.</p></div>
+      <div class="product"><span class="kind">Inbound phone agent</span><h3>Document Query Agent</h3><p>Answers document-related questions from staff and stakeholders.</p></div>
+      <div class="product"><span class="kind">Inbound phone agent</span><h3>IT Support Agent</h3><p>Provides first-level IT support and issue triage.</p></div>
+    </div>
+  </div>
+</section>
 
-    <section>
-      <div class="sec-head"><span class="tag">Track Record</span><h2>Experience</h2></div>
-      <div class="timeline">
-        <div class="role-block primary">
-          <div class="role-top">
-            <span class="role-title">Head of Unit — Data, AI &amp; Enterprise Technology</span>
-            <span class="role-years">2014 – 2026</span>
-          </div>
-          <div class="role-org">Abu Dhabi Media Network · Media &amp; Communications Industry, UAE</div>
-          <ul class="bullets">
-            <li>Owned enterprise AI product strategy — vision, roadmap, and commercialization path for Generative AI, LLM, RAG, and AI agent solutions across content, reporting, and knowledge-discovery use cases.</li>
-            <li>Defined and executed the enterprise Digital &amp; AI strategy, translating board priorities into multi-year transformation roadmaps.</li>
-            <li>Designed an AI Target Operating Model spanning governance, business interface, delivery squads, run-and-operate, security, and adoption.</li>
-            <li>Delivered 7 enterprise AI products with measurable impact on productivity, automation, and decision support — full lifecycle from business case to scale.</li>
-            <li>Chaired AI governance stage gates and established Responsible AI, data protection, and automation governance principles for a regulated environment.</li>
-            <li>Managed complex vendor and delivery-partner ecosystems; led cloud initiatives across Azure and OCI for AI and data platforms.</li>
-          </ul>
-        </div>
+<section id="projects">
+  <h2>Key projects</h2>
+  <div class="body">
+    <div class="project">
+      <h3>Knowledge Assistant, a RAG document Q&amp;A platform</h3>
+      <p>Hands-on build of an end-to-end RAG application answering natural-language questions over HR, operations and expense policies, with cited sources and guardrails that keep answers to the documents.</p>
+      <p class="stack">Python, LangChain, Hugging Face embeddings, Chroma, OpenAI GPT-4o mini, FastAPI, Docker, Google Cloud Run with a Cloud Build CI/CD pipeline.</p>
+    </div>
+    <div class="project">
+      <h3>AI Document Intelligence for HR, Finance and ERP</h3>
+      <p>Reusable document-understanding solution processing Emirates IDs, passports, invoices and scanned documents, with human-in-the-loop review for low-confidence results.</p>
+      <p class="stack">Azure AI Document Intelligence (Read, Layout, Invoice, custom classification and extraction), n8n orchestration.</p>
+    </div>
+    <div class="project">
+      <h3>Government and regulated-sector projects, 2006 – 2013</h3>
+      <ul>
+        <li>Invest AD: Oracle ERP and enterprise reporting for finance and procurement, with disaster recovery architecture.</li>
+        <li>Health Authority Abu Dhabi: cloud infrastructure, databases, ERP and BPM applications for mission-critical healthcare systems.</li>
+        <li>Central Bank of the UAE: migrated critical operational databases to a clustered architecture.</li>
+        <li>Dubai Health Authority: Oracle Data Guard disaster recovery for critical healthcare applications.</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-        <div class="minor-roles">
-          <div class="role-block">
-            <div class="role-top">
-              <span class="role-title">Project Lead — Oracle Applications &amp; DBA</span>
-              <span class="role-years">2010 – 2013</span>
-            </div>
-            <div class="role-org">Raqmiyat LLC, UAE</div>
-            <ul class="bullets compact">
-              <li>Delivered ERP transformation &amp; cloud migration for government entities (HAAD, Central Bank UAE).</li>
-              <li>Managed Oracle ERP lifecycle and high-availability architecture.</li>
-            </ul>
-          </div>
-          <div class="role-block">
-            <div class="role-top">
-              <span class="role-title">Database Administrator</span>
-              <span class="role-years">2006 – 2010</span>
-            </div>
-            <div class="role-org">Sui Northern Gas Pipelines Ltd., Pakistan</div>
-            <ul class="bullets compact">
-              <li>Managed Oracle EBS environments for performance and data integrity.</li>
-              <li>Implemented backup, recovery, and database security controls.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+<section id="competencies">
+  <h2>Core competencies</h2>
+  <div class="body">
+    <ul class="chips">
+      <li>Data &amp; AI strategy and technical roadmap</li>
+      <li>Hiring, mentoring and scaling technical teams</li>
+      <li>Data engineering, pipelines (ETL/ELT) and integration</li>
+      <li>Modern data architecture: cloud data warehouse and lakehouse</li>
+      <li>Production AI/ML, Generative AI, LLMs, RAG and agentic AI</li>
+      <li>MLOps / LLMOps best practices</li>
+      <li>Analytics and BI: Power BI, ERP and HCM dashboards</li>
+      <li>Data governance, data quality, security and privacy</li>
+      <li>AI governance, Responsible AI and model risk</li>
+      <li>C-level stakeholder engagement</li>
+      <li>AI adoption and change management</li>
+      <li>Vendor and delivery-partner management</li>
+    </ul>
+  </div>
+</section>
 
-    <section>
-      <div class="sec-head"><span class="tag">Delivered</span><h2>Key Projects</h2></div>
-      <div class="projects">
-        <div class="proj-card">
-          <h3>Invest AD</h3>
-          <span class="proj-type">Oracle ERP &amp; Reporting Modernization</span>
-          <p>Deployed Oracle ERP and reporting solutions for finance, procurement, and enterprise reporting; built disaster-recovery architecture for continuity.</p>
-        </div>
-        <div class="proj-card">
-          <h3>Health Authority Abu Dhabi</h3>
-          <span class="proj-type">Cloud Infrastructure &amp; App Deployment</span>
-          <p>Deployed cloud infrastructure, databases, ERP, and BPM applications for mission-critical healthcare systems.</p>
-        </div>
-        <div class="proj-card">
-          <h3>Central Bank of the UAE</h3>
-          <span class="proj-type">Database Cluster Migration</span>
-          <p>Migrated critical operational databases to a clustered architecture, strengthening continuity and reducing operational risk.</p>
-        </div>
-        <div class="proj-card">
-          <h3>Dubai Health Authority</h3>
-          <span class="proj-type">Disaster Recovery Implementation</span>
-          <p>Deployed Oracle Data Guard-based disaster recovery for critical healthcare applications.</p>
-        </div>
-      </div>
-    </section>
+<section id="skills">
+  <h2>Technical skills</h2>
+  <div class="body">
+    <dl class="skills">
+      <dt>Data engineering</dt><dd>Azure Data Factory, Azure Synapse, Databricks, Oracle Autonomous Database and Data Warehouse, SQL Server, Oracle Database, SQL, ETL/ELT, data warehousing, data integration</dd>
+      <dt>Analytics and BI</dt><dd>Power BI, Oracle Data Intelligence Platform (OCI PaaS), ERP and HCM dashboards, KPI reporting</dd>
+      <dt>AI and ML</dt><dd>Generative AI, LLMs, RAG, AI agents and agentic AI, machine learning, NLP, workflow automation, knowledge management</dd>
+      <dt>MLOps / LLMOps</dt><dd>Model validation and evaluation, monitoring for accuracy, bias and drift, versioning, traceability, CI/CD (Cloud Build), Docker</dd>
+      <dt>Governance and security</dt><dd>Data governance, Responsible AI, model risk, PII/privacy controls, guardrails, human-in-the-loop, risk and compliance</dd>
+      <dt>Hands-on development</dt><dd>Python, SQL, LangChain, FastAPI, Chroma, Hugging Face embeddings, OpenAI and Claude APIs, n8n</dd>
+      <dt>Cloud and AI platforms</dt><dd>Microsoft Azure (Azure AI Foundry, Azure ML, Azure AI Document Intelligence), OCI (Generative AI, Dedicated AI Clusters), Google Cloud (Cloud Run)</dd>
+      <dt>Enterprise systems</dt><dd>Oracle Fusion ERP, HCM, EBS, APIs, middleware, event-driven architecture</dd>
+    </dl>
+  </div>
+</section>
 
-    <section>
-      <div class="sec-head"><span class="tag">Built</span><h2>AI Products &amp; Agents Delivered</h2></div>
-      <div class="ai-wrap">
-        <p class="gate-title">Conceived and delivered with team leadership at Abu Dhabi Media Network</p>
-        <div class="ai-grid">
-          <div class="ai-card">
-            <span class="ai-icon">Voice AI</span>
-            <h3>Autonomous Voice Hub</h3>
-            <span class="ai-tag">Interactive demonstration platform</span>
-            <p>Interactive AI demonstration platform showcasing autonomous voice capabilities.</p>
-          </div>
-          <div class="ai-card">
-            <span class="ai-icon">Assistant</span>
-            <h3>Intelligent Employee Assistant</h3>
-            <span class="ai-tag">ADMN Nova</span>
-            <p>Video- and audio-based employee assistant experience for internal support and engagement.</p>
-          </div>
-          <div class="ai-card">
-            <span class="ai-icon">Phone Agent</span>
-            <h3>Vendor Renewal Agent</h3>
-            <span class="ai-tag">Outbound</span>
-            <p>Outbound phone agent for supplier and commercial license renewal reminders.</p>
-          </div>
-          <div class="ai-card">
-            <span class="ai-icon">Phone Agent</span>
-            <h3>IT Helpdesk Survey Agent</h3>
-            <span class="ai-tag">Outbound</span>
-            <p>Outbound phone agent collecting post-ticket feedback to improve IT service quality.</p>
-          </div>
-          <div class="ai-card">
-            <span class="ai-icon">Phone Agent</span>
-            <h3>Document Query Agent</h3>
-            <span class="ai-tag">Inbound</span>
-            <p>Inbound phone agent answering document-related questions from staff and stakeholders.</p>
-          </div>
-          <div class="ai-card">
-            <span class="ai-icon">Phone Agent</span>
-            <h3>IT Support Agent</h3>
-            <span class="ai-tag">Inbound</span>
-            <p>Inbound phone agent providing first-level IT support and issue triage.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<section id="speaking">
+  <h2>Speaking</h2>
+  <div class="body">
+    <ul class="talks">
+      <li><time>2025</time>Speaker, World AI Expo: "Building the AI-Powered Enterprise: From Data to Intelligence", on AI adoption, cloud AI integration and value realization.</li>
+      <li><time>2024</time>Keynote speaker, Oracle Data &amp; AI Forum, UAE: scalable, cloud-native AI platforms for enterprise and public-sector transformation.</li>
+      <li><time>2024</time>Panelist, IDC Artificial Intelligence Roadshow, UAE: enterprise AI strategy, operating models and governance in regulated environments.</li>
+    </ul>
+  </div>
+</section>
 
-    <section>
-      <div class="sec-head"><span class="tag">Voice</span><h2>Speaking &amp; Industry Engagements</h2></div>
-      <div class="speak-list">
-        <div class="speak-item"><span class="speak-year">2024</span><span><b>Keynote Speaker</b> — Oracle Data &amp; AI Forum, UAE: scalable, cloud-native AI platforms for enterprise and public-sector transformation.</span></div>
-        <div class="speak-item"><span class="speak-year">2024</span><span><b>Panelist</b> — IDC Artificial Intelligence Roadshow, UAE: enterprise AI strategies, operating models, and governance in regulated environments.</span></div>
-        <div class="speak-item"><span class="speak-year">2025</span><span><b>Speaker</b> — World AI Expo, "Building the AI-Powered Enterprise: From Data to Intelligence": adoption, cloud AI integration, and value realization.</span></div>
-      </div>
-    </section>
+<section id="education">
+  <h2>Education and certifications</h2>
+  <div class="body">
+    <ul>
+      <li>Master of Science in Computer Science, University of Central Punjab, Pakistan (2006), UAE MOH equivalency certified</li>
+      <li>Project Management Professional (PMP), Project Management Institute</li>
+      <li>Oracle Cloud Infrastructure (OCI) Architect</li>
+      <li>Oracle Certified Professional (OCP), Database Administrator</li>
+      <li>The Chief AI Officer's Handbook, Coursera</li>
+      <li>Managing AI Deployment Projects, Parts 1 and 2, CPMAI methodology, Coursera</li>
+      <li>Cybersecurity Compliance Framework, Standards and Regulations, Coursera</li>
+      <li>Govern and Evaluate Research Data Quality, Coursera</li>
+    </ul>
+  </div>
+</section>
 
-    <section>
-      <div class="sec-head"><span class="tag">Foundation</span><h2>Technical Skills &amp; Education</h2></div>
-      <div class="two-col">
-        <div>
-          <div class="skill-group">
-            <span class="sk-label">AI &amp; Data</span>
-            <p>Generative AI, LLMs, RAG, AI Agents / Agentic AI, NLP, AI/ML, Knowledge Management, Workflow Automation, Advanced Analytics</p>
-          </div>
-          <div class="skill-group">
-            <span class="sk-label">AI Governance</span>
-            <p>Responsible AI, AI Governance, Human-Centered AI Design, Risk &amp; Compliance</p>
-          </div>
-          <div class="skill-group">
-            <span class="sk-label">Cloud &amp; Data Platforms</span>
-            <p>Microsoft Azure, Oracle Cloud Infrastructure (OCI), Google Cloud, n8n, ElevenLabs, Databricks, Synapse, Data Factory</p>
-          </div>
-          <div class="skill-group">
-            <span class="sk-label">Enterprise Systems &amp; Integration</span>
-            <p>Oracle Fusion ERP, HCM, EBS · APIs, AI APIs, Middleware, Event-driven Architecture</p>
-          </div>
-        </div>
-        <div>
-          <ul class="cert-list">
-            <li><b>MSc Computer Science</b> — University of Central Punjab, Pakistan (Dec 2006), UAE MOH Equivalency Certified</li>
-            <li><b>PMP</b> — Project Management Institute</li>
-            <li><b>Oracle Cloud Infrastructure (OCI) Architect</b></li>
-            <li><b>OCP</b> — Database Administrator</li>
-            <li><b>The Chief AI Officer's Handbook</b> — Coursera</li>
-            <li><b>Managing AI Deployment Projects</b>, Parts 1 &amp; 2 — CPMAI Methodology, Coursera</li>
-            <li><b>Cybersecurity Compliance</b> — Framework, Standards &amp; Regulations, Coursera</li>
-            <li><b>Govern &amp; Evaluate Research Data Quality</b> — Coursera</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+</main>
 
-  </main>
-
-  <footer>
-    <b>Imran Sheikh</b> — Head of AI · Abu Dhabi, UAE · imranazharsheikh@gmail.com · linkedin.com/in/imranazhar
-  </footer>
+<footer>
+  <span>Imran Sheikh, Head of Data &amp; AI, Abu Dhabi</span>
+  <a href="mailto:imranazharsheikh@gmail.com">imranazharsheikh@gmail.com</a>
+</footer>
 
 </div>
+</div>
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('themeBtn');
+  function isDark(){
+    var t=root.getAttribute('data-theme');
+    if(t) return t==='dark';
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  function label(){ btn.textContent=isDark()?'Light mode':'Dark mode'; }
+  try{ var saved=localStorage.getItem('theme'); if(saved) root.setAttribute('data-theme',saved); }catch(e){}
+  label();
+  btn.addEventListener('click',function(){
+    var next=isDark()?'light':'dark';
+    root.setAttribute('data-theme',next);
+    try{ localStorage.setItem('theme',next); }catch(e){}
+    label();
+  });
+})();
+</script>
 </body>
 </html>
